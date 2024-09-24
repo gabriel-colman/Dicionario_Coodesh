@@ -1,0 +1,31 @@
+{
+  "name": "dictionary-quest",
+  "version": "1.0.0",
+  "main": "dist/server.js",
+  "scripts": {
+    "start": "ts-node server.ts",
+    "initialize-db": "ts-node scripts/initialize-db.ts",
+    "build": "tsc",
+    "dev": "ts-node-dev server.ts"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.10.9"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.11",
+    "@types/jsonwebtoken": "^8.5.5",
+    "@types/mongoose": "^5.7.36",
+    "@types/node": "^14.14.31",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.6.2"
+  }
+}

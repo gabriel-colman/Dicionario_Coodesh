@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  frontend:
+    build: ./client
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - NODE_ENV=development
+      - REACT_APP_API_URL=http://backend:5000
+    volumes:
+      - ./client:/app
+
+  backend:
+    build: ./server
+    ports:
+      - "5000:5000"
+    depends_on:
+      - mongodb
+    env_file:
+      - ./server/.env
+    command: >
+      sh -c "npm run initialize-db && npm start"
+    volumes:
+      - ./server:/app
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb/data:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=yourMongoUsername
+      - MONGO_INITDB_ROOT_PASSWORD=yourMongoPassword
